@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?><html xmlns="http://www.w3.org/TR/xhtml1/strict"><head><title>Analysis Report</title></head><style>
+        #Title {font-family: Verdana; font-size: 14pt; color: black; font-weight: bold}
+        .ColumnHeader {font-family: Verdana; font-size: 8pt; background-color:white; color: black}
+        .CriticalError {font-family: Verdana; font-size: 8pt; color: darkred; font-weight: bold; vertical-align: middle; }
+        .Error {font-family: Verdana; font-size: 8pt; color: royalblue; font-weight: bold; vertical-align: middle; }
+        .CriticalWarning {font-family: Verdana; font-size: 8pt; color: darkorange; font-weight: bold; vertical-align: middle; }
+        .Warning {font-family: Verdana; font-size: 8pt; color: darkgray; font-weight: bold; vertical-align: middle; }
+        .Information {font-family: Verdana; font-size: 8pt; color: black; font-weight: bold; vertical-align: middle; }
+
+        .PropertyName {font-family: Verdana; font-size: 8pt; color: black; font-weight: bold}
+        .PropertyContent {font-family: Verdana; font-size: 8pt; color: black}
+        .NodeIcon { font-family: WebDings; font-size: 12pt; color: navy; padding-right: 5;}
+        .MessagesIcon { font-family: WebDings; font-size: 12pt; color: red;}
+        .RuleDetails { padding-top: 10;}
+        .SourceCode { background-color:#DDDDFF; }
+        .RuleBlock { background-color:#EEEEFF; }
+        .MessageNumber { font-family: Verdana; font-size: 10pt; color: darkred; }
+        .MessageBlock { font-family: Verdana; font-size: 10pt; color: darkred; }
+        .Resolution {font-family: Verdana; font-size: 8pt; color: black; }        
+        .NodeLine { font-family: Verdana; font-size: 9pt;}
+        .Note { font-family: Verdana; font-size: 9pt; color:black; background-color: #DDDDFF; }
+        .NoteUser { font-family: Verdana; font-size: 9pt; font-weight: bold; }
+        .NoteTime { font-family: Verdana; font-size: 8pt; font-style: italic; }
+        .Button { font-family: Verdana; font-size: 9pt; color: blue; background-color: #EEEEEE; border-style: outset;}
+        a:link { color: blue; text-decoration: none; }
+        a:visited { color: blue; text-decoration: none; }
+        a:active { color: blue; text-decoration: none; }
+    </style><script>
+        function ViewState(blockId) 
+        { 
+           var block = document.getElementById(blockId); 
+           if (block.style.display=='none')
+           { 
+              block.style.display='block'; 
+              if (block.className == 'MessageDiv')
+              {
+                var toggle = document.getElementById(blockId + "Toggle");                
+                toggle.innerHTML = "6";
+              }              
+           }
+           else
+           { 
+              block.style.display='none'; 
+              if (block.className=='MessageDiv')
+              {
+                var toggle = document.getElementById(blockId + "Toggle");                
+                toggle.innerHTML = "4";
+              }            
+           }            
+        } 
+       
+        function SwitchAll(how)
+        {          
+           var nodes = document.getElementsByTagName("div"); 
+           for (i = 0; i != nodes.length;i++)
+           {    
+              var block = nodes[i]; 
+              if (block != null)
+              { 
+                 if (block.className == 'NodeDiv' || block.className == 'MessageBlockDiv' || IsMessageDivWithActionNone(block, how))
+                 { 
+                    block.style.display=how; 
+                 }                
+              } 
+           } 
+        } 
+        
+        function IsMessageDivWithActionNone(block, how)
+        {
+          if (block.className != 'MessageDiv') return false;
+          if (how != 'none') return false;
+          
+          //as we're collapsing the tree, set the correct toggle icon
+          var toggle = document.getElementById(block.id + "Toggle");
+          if(toggle != null)
+          {
+          toggle.innerHTML = "4";
+          }
+          return true;
+        }
+
+        function ExpandAll()
+        { 
+           SwitchAll('block'); 
+        } 
+       
+        function CollapseAll() 
+        { 
+           SwitchAll('none'); 
+        } 
+        
+        function DoNothing() {}
+        
+        function ButtonState(blockId) 
+        { 
+           var block = document.getElementById(blockId); 
+           if (block.style.borderStyle=='inset')
+           { 
+              block.style.borderStyle='outset'; 
+           }
+           else
+           { 
+              block.style.borderStyle='inset'; 
+           } 
+        } 
+    </script><body bgcolor="white" alink="Black" vlink="Black" link="Black"><div id="Title">
+        FxCop 12.0 Analysis Report
+    </div><br /><table><tr><td class="Button" Id="ExpandAllButton" OnMouseOver="ButtonState('ExpandAllButton');" OnMouseOut="ButtonState('ExpandAllButton');"><a href="javascript:ExpandAll()">Expand All</a></td><td class="Button" Id="CollapseAllButton" OnMouseOver="ButtonState('CollapseAllButton');" OnMouseOut="ButtonState('CollapseAllButton');"><a href="javascript:CollapseAll();">Collapse All</a></td></tr></table><br />
+  <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EI');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">2</nobr></a>S:\WorkSpace\Sri Vaikhanasa Network\Svn\Svn.Web\bin\Svn.Web.dll<nobr class="MessageNumber">
+                        (29)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EI">
+   
+    <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EN');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">1</nobr></a>svn.web.dll<nobr class="MessageNumber">
+                        (29)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EN">
+     
+      <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0ES');&#xA;                    "><a href="javascript:DoNothing()"><nobr style="color: navy;">{} </nobr></a>Svn.Web<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0ES">
+       
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EX');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>Startup<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EX">
+         
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0E6');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">L</nobr></a>#Configuration(Owin.IAppBuilder)<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0E6">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0EGB');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #Configuration(Owin.IAppBuilder)</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0EGB"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0EIB');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0EIBToggle">4</nobr></a></td><td class="Warning">Warning</td><td valign="top" style=" text-align: center; " class="Warning">95</td><td class="Resolution" valign="top">The 'this' parameter (or 'Me' in Visual Basic) of 'Startup.Configuration(IAppBuilder)' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0EIB"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Mark members as static</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Performance</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1822</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Methods which do not access instance data or call instance methods can be marked as static (Shared in Visual Basic). After doing so, the compiler will emit non-virtual call sites to these members which will prevent a check at runtime for each call that ensures the current object pointer is non-null. This can result in a measurable performance gain for performance-sensitive code. In some cases, the failure to access the current object instance represents a correctness issue.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">PerformanceRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms245046.aspx">http://msdn.microsoft.com/library/ms245046.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+         
+        </div>
+       
+      </div>
+      <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0E2B');&#xA;                    "><a href="javascript:DoNothing()"><nobr style="color: navy;">{} </nobr></a>Svn.Web.Areas.Accounts.Controllers<nobr class="MessageNumber">
+                        (3)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0E2B">
+       
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>InternalController<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EAC">
+         
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EIC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">L</nobr></a>#SendEmailOTPAsync(Svn.Web.Areas.UserAccounts.Models.ApplicationUser,System.String)<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EIC">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0EPC');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #SendEmailOTPAsync(Svn.Web.Areas.UserAccounts.Models.ApplicationUser,System.String)</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0EPC"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0ERC');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0ERCToggle">4</nobr></a></td><td class="Error">Error</td><td valign="top" style=" text-align: center; " class="Error">85</td><td class="Resolution" valign="top">Correct the casing of 'OTP' in member name 'InternalController.SendEmailOTPAsync(ApplicationUser, string)' by changing it to 'Otp'.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0ERC"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Identifiers should be cased correctly</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Naming</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1709</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Type, namespace, and member identifiers are Pascal-cased. Parameter identifiers are camel-cased. Two letter acronyms within these identifiers should be upper-cased, for example, use System.IO instead of System.Io. Acronyms of three or more letters should be Pascal-cased, for example, use System.Xml instead of System.XML. The pascal-casing convention capitalizes the first letter of each word, as in BackColor. The camel-casing convention formats the first letter of the first word in lowercase and capitalizes the first letter of all subsequent words, as in backgroundColor. Although it may be common practice for some two letter acronyms to not be fully capitalized, violations of this rule should not be excluded for this reason. For example, 'DbConnection', is common but incorrect; use DBConnection. A violation of this rule might be required for compatibility with existing, non-managed symbol schemes. In general, however, these symbols should not be visible outside the assembly that uses them.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">NamingRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182240.aspx">http://msdn.microsoft.com/library/ms182240.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+         
+        </div>
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EED');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>ManageController<nobr class="MessageNumber">
+                        (2)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EED">
+         
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EMD');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">L</nobr></a>#DisableTFA()<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EMD">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0ETD');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #DisableTFA()</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0ETD"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0EVD');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0EVDToggle">4</nobr></a></td><td class="Error">Error</td><td valign="top" style=" text-align: center; " class="Error">85</td><td class="Resolution" valign="top">Correct the casing of 'TFA' in member name 'ManageController.DisableTFA()' by changing it to 'Tfa'.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0EVD"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Identifiers should be cased correctly</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Naming</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1709</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Type, namespace, and member identifiers are Pascal-cased. Parameter identifiers are camel-cased. Two letter acronyms within these identifiers should be upper-cased, for example, use System.IO instead of System.Io. Acronyms of three or more letters should be Pascal-cased, for example, use System.Xml instead of System.XML. The pascal-casing convention capitalizes the first letter of each word, as in BackColor. The camel-casing convention formats the first letter of the first word in lowercase and capitalizes the first letter of all subsequent words, as in backgroundColor. Although it may be common practice for some two letter acronyms to not be fully capitalized, violations of this rule should not be excluded for this reason. For example, 'DbConnection', is common but incorrect; use DBConnection. A violation of this rule might be required for compatibility with existing, non-managed symbol schemes. In general, however, these symbols should not be visible outside the assembly that uses them.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">NamingRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182240.aspx">http://msdn.microsoft.com/library/ms182240.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EGE');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">L</nobr></a>#EnableTFA()<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EGE">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0ENE');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #EnableTFA()</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0ENE"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0EPE');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0EPEToggle">4</nobr></a></td><td class="Error">Error</td><td valign="top" style=" text-align: center; " class="Error">85</td><td class="Resolution" valign="top">Correct the casing of 'TFA' in member name 'ManageController.EnableTFA()' by changing it to 'Tfa'.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0EPE"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Identifiers should be cased correctly</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Naming</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1709</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Type, namespace, and member identifiers are Pascal-cased. Parameter identifiers are camel-cased. Two letter acronyms within these identifiers should be upper-cased, for example, use System.IO instead of System.Io. Acronyms of three or more letters should be Pascal-cased, for example, use System.Xml instead of System.XML. The pascal-casing convention capitalizes the first letter of each word, as in BackColor. The camel-casing convention formats the first letter of the first word in lowercase and capitalizes the first letter of all subsequent words, as in backgroundColor. Although it may be common practice for some two letter acronyms to not be fully capitalized, violations of this rule should not be excluded for this reason. For example, 'DbConnection', is common but incorrect; use DBConnection. A violation of this rule might be required for compatibility with existing, non-managed symbol schemes. In general, however, these symbols should not be visible outside the assembly that uses them.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">NamingRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182240.aspx">http://msdn.microsoft.com/library/ms182240.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+         
+        </div>
+       
+      </div>
+      <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EEF');&#xA;                    "><a href="javascript:DoNothing()"><nobr style="color: navy;">{} </nobr></a>Svn.Web.Areas.Articles.Controllers<nobr class="MessageNumber">
+                        (2)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EEF">
+       
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EJF');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>AdministrationController<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EJF">
+         
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0ERF');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">L</nobr></a>#GetArticle(System.Nullable`1&lt;System.Int64&gt;)<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0ERF">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0EYF');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #GetArticle(System.Nullable`1&lt;System.Int64&gt;)</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0EYF"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0E1F');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0E1FToggle">4</nobr></a></td><td class="Error">Error</td><td valign="top" style=" text-align: center; " class="Error">95</td><td class="Resolution" valign="top">'AdministrationController.GetArticle(long?)' creates an exception of type 'ApplicationException', an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0E1F"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Do not raise reserved exception types</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Usage</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA2201</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">User code should not create and raise exceptions of certain types that are reserved by the runtime or which are of a too general exception type. Exception types that are too general include Exception, SystemException, and ApplicationException. Exception types that are reserved by the runtime include ThreadAbortException, OutOfMemoryException, ExecutionEngineException, and IndexOutOfRangeException.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">UsageRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182338.aspx">http://msdn.microsoft.com/library/ms182338.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+         
+        </div>
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EMG');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>ArticleController<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EMG">
+         
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EUG');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">L</nobr></a>#GetArticle(System.Nullable`1&lt;System.Guid&gt;)<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EUG">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0E2G');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #GetArticle(System.Nullable`1&lt;System.Guid&gt;)</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0E2G"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0E4G');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0E4GToggle">4</nobr></a></td><td class="Error">Error</td><td valign="top" style=" text-align: center; " class="Error">95</td><td class="Resolution" valign="top">'ArticleController.GetArticle(Guid?)' creates an exception of type 'ApplicationException', an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0E4G"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Do not raise reserved exception types</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Usage</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA2201</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">User code should not create and raise exceptions of certain types that are reserved by the runtime or which are of a too general exception type. Exception types that are too general include Exception, SystemException, and ApplicationException. Exception types that are reserved by the runtime include ThreadAbortException, OutOfMemoryException, ExecutionEngineException, and IndexOutOfRangeException.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">UsageRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182338.aspx">http://msdn.microsoft.com/library/ms182338.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+         
+        </div>
+       
+      </div>
+      <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0ERH');&#xA;                    "><a href="javascript:DoNothing()"><nobr style="color: navy;">{} </nobr></a>Svn.Web.Areas.Common.Controllers<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0ERH">
+       
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EWH');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>CaptchaImage<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EWH">
+         
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0E5H');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">L</nobr></a>#CreateRandomText(System.Int32)<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0E5H">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0EGAAC');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #CreateRandomText(System.Int32)</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0EGAAC"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0EIAAC');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0EIAACToggle">4</nobr></a></td><td class="Warning">Warning</td><td valign="top" style=" text-align: center; " class="Warning">95</td><td class="Resolution" valign="top">The 'this' parameter (or 'Me' in Visual Basic) of 'CaptchaImage.CreateRandomText(int)' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0EIAAC"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Mark members as static</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Performance</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1822</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Methods which do not access instance data or call instance methods can be marked as static (Shared in Visual Basic). After doing so, the compiler will emit non-virtual call sites to these members which will prevent a check at runtime for each call that ensures the current object pointer is non-null. This can result in a measurable performance gain for performance-sensitive code. In some cases, the failure to access the current object instance represents a correctness issue.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">PerformanceRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms245046.aspx">http://msdn.microsoft.com/library/ms245046.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+         
+        </div>
+       
+      </div>
+      <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0E2AAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr style="color: navy;">{} </nobr></a>Svn.Web.Areas.EmailTemplates.Controllers<nobr class="MessageNumber">
+                        (2)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0E2AAC">
+       
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EABAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>EmailTemplateController<nobr class="MessageNumber">
+                        (2)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EABAC">
+         
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EIBAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">L</nobr></a>#GetEmailTemplate(System.Nullable`1&lt;System.Guid&gt;)<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EIBAC">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0EPBAC');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #GetEmailTemplate(System.Nullable`1&lt;System.Guid&gt;)</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0EPBAC"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0ERBAC');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0ERBACToggle">4</nobr></a></td><td class="Error">Error</td><td valign="top" style=" text-align: center; " class="Error">95</td><td class="Resolution" valign="top">'EmailTemplateController.GetEmailTemplate(Guid?)' creates an exception of type 'NullReferenceException', an exception type that is reserved by the runtime and should never be raised by managed code. If this exception instance might be thrown, use a different exception type.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0ERBAC"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Do not raise reserved exception types</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Usage</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA2201</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">User code should not create and raise exceptions of certain types that are reserved by the runtime or which are of a too general exception type. Exception types that are too general include Exception, SystemException, and ApplicationException. Exception types that are reserved by the runtime include ThreadAbortException, OutOfMemoryException, ExecutionEngineException, and IndexOutOfRangeException.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">UsageRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182338.aspx">http://msdn.microsoft.com/library/ms182338.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EBCAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">L</nobr></a>#RedirectToIndex()<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EBCAC">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0EICAC');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #RedirectToIndex()</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0EICAC"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0EKCAC');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0EKCACToggle">4</nobr></a></td><td class="Warning">Warning</td><td valign="top" style=" text-align: center; " class="Warning">75</td><td class="Resolution" valign="top">'EmailTemplateController.RedirectToIndex()' appears to have no upstream public or protected callers.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0EKCAC"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Avoid uncalled private code</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Performance</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1811</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">There is uncalled code that is not externally visible and is not a known runtime entry point. If this violation fires in error, please send a problem report to the Visual Studio Code Analysis team.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">PerformanceRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182264.aspx">http://msdn.microsoft.com/library/ms182264.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+         
+        </div>
+       
+      </div>
+      <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0E4CAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr style="color: navy;">{} </nobr></a>Svn.Web.Areas.UserAccounts.Models<nobr class="MessageNumber">
+                        (7)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0E4CAC">
+       
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0ECDAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>ApplicationDbContext<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0ECDAC">
+         
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EKDAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">L</nobr></a>#.cctor()<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EKDAC">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0ERDAC');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #.cctor()</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0ERDAC"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0ETDAC');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0ETDACToggle">4</nobr></a></td><td class="CriticalWarning">CriticalWarning</td><td valign="top" style=" text-align: center; " class="CriticalWarning">90</td><td class="Resolution" valign="top">Initialize all static fields in 'ApplicationDbContext' when those fields are declared and remove the explicit static constructor.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0ETDAC"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Initialize reference type static fields inline</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Performance</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1810</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Static fields should be initialized when declared. Initializing static data in explicit static constructors results in less performant code.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">PerformanceRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182275.aspx">http://msdn.microsoft.com/library/ms182275.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+         
+        </div>
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EEEAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>ConfigureTwoFactorViewModel<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EEEAC">
+         
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EMEAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon"></nobr></a>#Providers<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EMEAC">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0ETEAC');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #Providers</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0ETEAC"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0EVEAC');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0EVEACToggle">4</nobr></a></td><td class="Warning">Warning</td><td valign="top" style=" text-align: center; " class="Warning">75</td><td class="Resolution" valign="top">Change 'ConfigureTwoFactorViewModel.Providers' to be read-only by removing the property setter.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0EVEAC"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Collection properties should be read only</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Usage</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA2227</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Properties that return collections should be read-only so that users cannot entirely replace the backing store. Users can still modify the contents of the collection by calling relevant methods on the collection. Note that the XmlSerializer class has special support for deserializing read-only collections. See the XmlSerializer overview for more information.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">UsageRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182327.aspx">http://msdn.microsoft.com/library/ms182327.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+         
+        </div>
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EGFAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>IndexViewModel<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EGFAC">
+         
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EOFAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon"></nobr></a>#Logins<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EOFAC">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0EVFAC');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #Logins</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0EVFAC"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0EXFAC');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0EXFACToggle">4</nobr></a></td><td class="Warning">Warning</td><td valign="top" style=" text-align: center; " class="Warning">75</td><td class="Resolution" valign="top">Change 'IndexViewModel.Logins' to be read-only by removing the property setter.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0EXFAC"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Collection properties should be read only</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Usage</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA2227</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Properties that return collections should be read-only so that users cannot entirely replace the backing store. Users can still modify the contents of the collection by calling relevant methods on the collection. Note that the XmlSerializer class has special support for deserializing read-only collections. See the XmlSerializer overview for more information.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">UsageRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182327.aspx">http://msdn.microsoft.com/library/ms182327.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+         
+        </div>
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EIGAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>ManageLoginsViewModel<nobr class="MessageNumber">
+                        (2)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EIGAC">
+         
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EQGAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon"></nobr></a>#CurrentLogins<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EQGAC">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0EXGAC');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #CurrentLogins</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0EXGAC"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0EZGAC');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0EZGACToggle">4</nobr></a></td><td class="Warning">Warning</td><td valign="top" style=" text-align: center; " class="Warning">75</td><td class="Resolution" valign="top">Change 'ManageLoginsViewModel.CurrentLogins' to be read-only by removing the property setter.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0EZGAC"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Collection properties should be read only</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Usage</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA2227</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Properties that return collections should be read-only so that users cannot entirely replace the backing store. Users can still modify the contents of the collection by calling relevant methods on the collection. Note that the XmlSerializer class has special support for deserializing read-only collections. See the XmlSerializer overview for more information.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">UsageRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182327.aspx">http://msdn.microsoft.com/library/ms182327.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EIHAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon"></nobr></a>#OtherLogins<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EIHAC">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0EPHAC');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #OtherLogins</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0EPHAC"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0ERHAC');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0ERHACToggle">4</nobr></a></td><td class="Warning">Warning</td><td valign="top" style=" text-align: center; " class="Warning">75</td><td class="Resolution" valign="top">Change 'ManageLoginsViewModel.OtherLogins' to be read-only by removing the property setter.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0ERHAC"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Collection properties should be read only</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Usage</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA2227</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Properties that return collections should be read-only so that users cannot entirely replace the backing store. Users can still modify the contents of the collection by calling relevant methods on the collection. Note that the XmlSerializer class has special support for deserializing read-only collections. See the XmlSerializer overview for more information.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">UsageRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182327.aspx">http://msdn.microsoft.com/library/ms182327.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+         
+        </div>
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0ECIAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>SendCodeViewModel<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0ECIAC">
+         
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EKIAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon"></nobr></a>#Providers<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EKIAC">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0ERIAC');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #Providers</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0ERIAC"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0ETIAC');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0ETIACToggle">4</nobr></a></td><td class="Warning">Warning</td><td valign="top" style=" text-align: center; " class="Warning">75</td><td class="Resolution" valign="top">Change 'SendCodeViewModel.Providers' to be read-only by removing the property setter.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0ETIAC"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Collection properties should be read only</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Usage</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA2227</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Properties that return collections should be read-only so that users cannot entirely replace the backing store. Users can still modify the contents of the collection by calling relevant methods on the collection. Note that the XmlSerializer class has special support for deserializing read-only collections. See the XmlSerializer overview for more information.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">UsageRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182327.aspx">http://msdn.microsoft.com/library/ms182327.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+         
+        </div>
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EEJAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>UserProfile<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EEJAC">
+         
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EMJAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon"></nobr></a>#BirthDate<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EMJAC">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0ETJAC');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #BirthDate</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0ETJAC"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0EVJAC');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0EVJACToggle">4</nobr></a></td><td class="Error">Error</td><td valign="top" style=" text-align: center; " class="Error">80</td><td class="Resolution" valign="top">The compound word 'BirthDate' in member name 'UserProfile.BirthDate' exists as a discrete term. If your usage is intended to be single word, case it as 'Birthdate' or strip the first token entirely if it represents any sort of Hungarian notation.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0EVJAC"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Compound words should be cased correctly</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Naming</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1702</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Avoid creating compound words from terms which exist in the dictionary as discrete terms. Do not create a compound word such as 'StopWatch' or 'PopUp'. These terms are recognized in the dictionary and should be cased as 'Stopwatch' and 'Popup'.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">NamingRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/bb264474.aspx">http://msdn.microsoft.com/library/bb264474.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+         
+        </div>
+       
+      </div>
+      <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EKKAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr style="color: navy;">{} </nobr></a>Svn.Web.Attributes<nobr class="MessageNumber">
+                        (4)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EKKAC">
+       
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EPKAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>AuthorizeActivityAttribute<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EPKAC">
+         <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0EVKAC');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            AuthorizeActivityAttribute</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0EVKAC"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0EXKAC');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0EXKACToggle">4</nobr></a></td><td class="Warning">Warning</td><td valign="top" style=" text-align: center; " class="Warning">75</td><td class="Resolution" valign="top">Seal 'AuthorizeActivityAttribute', if possible.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0EXKAC"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Avoid unsealed attributes</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Performance</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1813</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Seal attribute types for improved performance. Sealing attribute types speeds up performance during reflection on custom attributes.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">PerformanceRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182267.aspx">http://msdn.microsoft.com/library/ms182267.aspx</a></td></tr></table></div></td></tr></table></div>
+        </div>
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EGLAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>MultiButtonAttribute<nobr class="MessageNumber">
+                        (2)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EGLAC">
+         <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0EMLAC');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>2
+            Messages
+            for 
+            MultiButtonAttribute</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0EMLAC"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0EOLAC');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0EOLACToggle">4</nobr></a></td><td class="Warning">Warning</td><td valign="top" style=" text-align: center; " class="Warning">75</td><td class="Resolution" valign="top">Seal 'MultiButtonAttribute', if possible.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0EOLAC"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Avoid unsealed attributes</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Performance</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1813</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Seal attribute types for improved performance. Sealing attribute types speeds up performance during reflection on custom attributes.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">PerformanceRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182267.aspx">http://msdn.microsoft.com/library/ms182267.aspx</a></td></tr></table></div></td></tr><tr onClick="&#xA;            javascript:ViewState('ID0E2LAC');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0E2LACToggle">4</nobr></a></td><td class="CriticalWarning">CriticalWarning</td><td valign="top" style=" text-align: center; " class="CriticalWarning">75</td><td class="Resolution" valign="top">Correct the spelling of 'Multi' in type name 'MultiButtonAttribute'.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0E2LAC"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Identifiers should be spelled correctly</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Naming</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1704</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">The individual words that make up an identifier should not be abbreviated and should be spelled correctly. If this rule generates a false positive on a term that should be recognized, add the word to the FxCop custom dictionary.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">NamingRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/bb264492.aspx">http://msdn.microsoft.com/library/bb264492.aspx</a></td></tr></table></div></td></tr></table></div>
+        </div>
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EMMAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>SvnGlobalErrorHandlerAttribute<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EMMAC">
+         <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0ESMAC');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            SvnGlobalErrorHandlerAttribute</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0ESMAC"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0EUMAC');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0EUMACToggle">4</nobr></a></td><td class="Warning">Warning</td><td valign="top" style=" text-align: center; " class="Warning">75</td><td class="Resolution" valign="top">Seal 'SvnGlobalErrorHandlerAttribute', if possible.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0EUMAC"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Avoid unsealed attributes</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Performance</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1813</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Seal attribute types for improved performance. Sealing attribute types speeds up performance during reflection on custom attributes.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">PerformanceRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182267.aspx">http://msdn.microsoft.com/library/ms182267.aspx</a></td></tr></table></div></td></tr></table></div>
+        </div>
+       
+      </div>
+      <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EFNAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr style="color: navy;">{} </nobr></a>Svn.Web.Helpers<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EFNAC">
+       
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EKNAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>HtmlExtensions<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EKNAC">
+         
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0ESNAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">L</nobr></a>#DisplayContentPreview(System.Web.Mvc.HtmlHelper,System.String)<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0ESNAC">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0EZNAC');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #DisplayContentPreview(System.Web.Mvc.HtmlHelper,System.String)</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0EZNAC"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0E2NAC');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0E2NACToggle">4</nobr></a></td><td class="Warning">Warning</td><td valign="top" style=" text-align: center; " class="Warning">95</td><td class="Resolution" valign="top">Parameter 'helper' of 'HtmlExtensions.DisplayContentPreview(this HtmlHelper, string)' is never used. Remove the parameter or use it in the method body.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0E2NAC"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Review unused parameters</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Usage</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1801</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Review parameters in non-virtual methods that are not used in the method body to ensure no correctness exists around failure to access them. Unused parameters incur maintenance and performance costs. Sometimes a violation of this rule can point to an implementation bug in the method (i.e. the parameter should actually have been used in the method body). Exclude warnings of this rule if the parameter has to exist because of backward compatibility.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">UsageRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182268.aspx">http://msdn.microsoft.com/library/ms182268.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+         
+        </div>
+       
+      </div>
+      <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EPOAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr style="color: navy;">{} </nobr></a>Svn.Web.Migrations<nobr class="MessageNumber">
+                        (2)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EPOAC">
+       
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EUOAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>Configuration<nobr class="MessageNumber">
+                        (2)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EUOAC">
+         <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0E1OAC');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>2
+            Messages
+            for 
+            Configuration</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0E1OAC"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0E3OAC');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0E3OACToggle">4</nobr></a></td><td class="Warning">Warning</td><td valign="top" style=" text-align: center; " class="Warning">75</td><td class="Resolution" valign="top">'Configuration' is an internal class that is apparently never instantiated. If so, remove the code from the assembly. If this class is intended to contain only static methods, consider adding a private constructor to prevent the compiler from generating a default constructor.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0E3OAC"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Avoid uninstantiated internal classes</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Performance</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1812</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">An internal class was detected that is apparently never instantiated. This rule does not attempt to detect late-bound creation and will generate false positives if instances of a type are only created in this way (for example, by means of Activator.CreateInstance or by passing the type as an argument to a TypeConverter constructor).</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">PerformanceRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182265.aspx">http://msdn.microsoft.com/library/ms182265.aspx</a></td></tr></table></div></td></tr><tr onClick="&#xA;            javascript:ViewState('ID0EJPAC');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0EJPACToggle">4</nobr></a></td><td class="Error">Error</td><td valign="top" style=" text-align: center; " class="Error">95</td><td class="Resolution" valign="top">The type name 'Configuration' conflicts in whole or in part with the namespace name 'System.Configuration' defined in the .NET Framework. Rename the type to eliminate the conflict.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0EJPAC"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Type names should not match namespaces</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Naming</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1724</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Identifiers which conflict in whole or in part with namespace names should be avoided. Names that describe the purpose or contents of a type are preferred.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">NamingRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182257.aspx">http://msdn.microsoft.com/library/ms182257.aspx</a></td></tr></table></div></td></tr></table></div>
+        </div>
+       
+      </div>
+      <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0E2PAC');&#xA;                    "><a href="javascript:DoNothing()"><nobr style="color: navy;">{} </nobr></a>Svn.Web.Models.Emails<nobr class="MessageNumber">
+                        (6)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0E2PAC">
+       
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EBAAE');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>AccountActivationEmail<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EBAAE">
+         
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EJAAE');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon"></nobr></a>#Subject<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EJAAE">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0EQAAE');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #Subject</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0EQAAE"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0ESAAE');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0ESAAEToggle">4</nobr></a></td><td class="Warning">Warning</td><td valign="top" style=" text-align: center; " class="Warning">95</td><td class="Resolution" valign="top">The 'this' parameter (or 'Me' in Visual Basic) of 'AccountActivationEmail.Subject' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0ESAAE"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Mark members as static</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Performance</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1822</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Methods which do not access instance data or call instance methods can be marked as static (Shared in Visual Basic). After doing so, the compiler will emit non-virtual call sites to these members which will prevent a check at runtime for each call that ensures the current object pointer is non-null. This can result in a measurable performance gain for performance-sensitive code. In some cases, the failure to access the current object instance represents a correctness issue.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">PerformanceRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms245046.aspx">http://msdn.microsoft.com/library/ms245046.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+         
+        </div>
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EDBAE');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>BaseEmail<nobr class="MessageNumber">
+                        (2)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EDBAE">
+         
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0ELBAE');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon"></nobr></a>#FromEmail<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0ELBAE">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0ESBAE');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #FromEmail</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0ESBAE"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0EUBAE');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0EUBAEToggle">4</nobr></a></td><td class="Warning">Warning</td><td valign="top" style=" text-align: center; " class="Warning">95</td><td class="Resolution" valign="top">The 'this' parameter (or 'Me' in Visual Basic) of 'BaseEmail.FromEmail' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0EUBAE"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Mark members as static</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Performance</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1822</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Methods which do not access instance data or call instance methods can be marked as static (Shared in Visual Basic). After doing so, the compiler will emit non-virtual call sites to these members which will prevent a check at runtime for each call that ensures the current object pointer is non-null. This can result in a measurable performance gain for performance-sensitive code. In some cases, the failure to access the current object instance represents a correctness issue.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">PerformanceRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms245046.aspx">http://msdn.microsoft.com/library/ms245046.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EDCAE');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon"></nobr></a>#SenderName<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EDCAE">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0EKCAE');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #SenderName</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0EKCAE"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0EMCAE');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0EMCAEToggle">4</nobr></a></td><td class="Warning">Warning</td><td valign="top" style=" text-align: center; " class="Warning">95</td><td class="Resolution" valign="top">The 'this' parameter (or 'Me' in Visual Basic) of 'BaseEmail.SenderName' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0EMCAE"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Mark members as static</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Performance</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1822</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Methods which do not access instance data or call instance methods can be marked as static (Shared in Visual Basic). After doing so, the compiler will emit non-virtual call sites to these members which will prevent a check at runtime for each call that ensures the current object pointer is non-null. This can result in a measurable performance gain for performance-sensitive code. In some cases, the failure to access the current object instance represents a correctness issue.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">PerformanceRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms245046.aspx">http://msdn.microsoft.com/library/ms245046.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+         
+        </div>
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0E4CAE');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>OTPEmail<nobr class="MessageNumber">
+                        (2)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0E4CAE">
+         <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0EDDAE');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            OTPEmail</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0EDDAE"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0EFDAE');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0EFDAEToggle">4</nobr></a></td><td class="Error">Error</td><td valign="top" style=" text-align: center; " class="Error">85</td><td class="Resolution" valign="top">Correct the casing of 'OTP' in type name 'OTPEmail' by changing it to 'Otp'.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0EFDAE"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Identifiers should be cased correctly</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Naming</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1709</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Type, namespace, and member identifiers are Pascal-cased. Parameter identifiers are camel-cased. Two letter acronyms within these identifiers should be upper-cased, for example, use System.IO instead of System.Io. Acronyms of three or more letters should be Pascal-cased, for example, use System.Xml instead of System.XML. The pascal-casing convention capitalizes the first letter of each word, as in BackColor. The camel-casing convention formats the first letter of the first word in lowercase and capitalizes the first letter of all subsequent words, as in backgroundColor. Although it may be common practice for some two letter acronyms to not be fully capitalized, violations of this rule should not be excluded for this reason. For example, 'DbConnection', is common but incorrect; use DBConnection. A violation of this rule might be required for compatibility with existing, non-managed symbol schemes. In general, however, these symbols should not be visible outside the assembly that uses them.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">NamingRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms182240.aspx">http://msdn.microsoft.com/library/ms182240.aspx</a></td></tr></table></div></td></tr></table></div>
+         
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EXDAE');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon"></nobr></a>#Subject<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EXDAE">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0E5DAE');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #Subject</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0E5DAE"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0EAEAE');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0EAEAEToggle">4</nobr></a></td><td class="Warning">Warning</td><td valign="top" style=" text-align: center; " class="Warning">95</td><td class="Resolution" valign="top">The 'this' parameter (or 'Me' in Visual Basic) of 'OTPEmail.Subject' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0EAEAE"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Mark members as static</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Performance</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1822</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Methods which do not access instance data or call instance methods can be marked as static (Shared in Visual Basic). After doing so, the compiler will emit non-virtual call sites to these members which will prevent a check at runtime for each call that ensures the current object pointer is non-null. This can result in a measurable performance gain for performance-sensitive code. In some cases, the failure to access the current object instance represents a correctness issue.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">PerformanceRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms245046.aspx">http://msdn.microsoft.com/library/ms245046.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+         
+        </div>
+        <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EREAE');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon">&lt;</nobr></a>PasswordResetEmail<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EREAE">
+         
+          <div class="NodeLine" onClick="&#xA;                        javascript:ViewState('ID0EZEAE');&#xA;                    "><a href="javascript:DoNothing()"><nobr class="NodeIcon"></nobr></a>#Subject<nobr class="MessageNumber">
+                        (1)
+                    </nobr></div><div class="NodeDiv" style="display: none; position: relative; padding-left: 11;" id="ID0EZEAE">
+           <div class="MessageBlock" onClick="&#xA;            javascript:ViewState('ID0EAFAE');&#xA;        "><a href="javascript:DoNothing()"><nobr class="MessagesIcon">]</nobr></a>1
+            Message
+            for 
+            #Subject</div><div class="MessageBlockDiv" style="display: none; position: relative; padding-left: 5;" id="ID0EAFAE"><table width="100%"><tr><td class="ColumnHeader" /><td class="ColumnHeader">Message Level</td><td class="ColumnHeader">Certainty</td><td class="ColumnHeader" width="100%">Resolution</td></tr><tr onClick="&#xA;            javascript:ViewState('ID0ECFAE');&#xA;        " bgcolor="#EEEEEE"><td valign="top"><a href="javascript:DoNothing();"><nobr class="NodeIcon" id="ID0ECFAEToggle">4</nobr></a></td><td class="Warning">Warning</td><td valign="top" style=" text-align: center; " class="Warning">95</td><td class="Resolution" valign="top">The 'this' parameter (or 'Me' in Visual Basic) of 'PasswordResetEmail.Subject' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</td></tr><tr><td /><td colspan="3"><div class="MessageDiv" style="display: none" id="ID0ECFAE"><table width="100%" class="RuleBlock"><tr><td class="PropertyName">Rule:</td><td class="PropertyContent">Mark members as static</td></tr><tr><td class="PropertyName">Category:</td><td class="PropertyContent">Microsoft.Performance</td></tr><tr><td class="PropertyName">Check Id:</td><td class="PropertyContent">CA1822</td></tr><tr><td class="PropertyName">Rule Description:</td><td class="PropertyContent">Methods which do not access instance data or call instance methods can be marked as static (Shared in Visual Basic). After doing so, the compiler will emit non-virtual call sites to these members which will prevent a check at runtime for each call that ensures the current object pointer is non-null. This can result in a measurable performance gain for performance-sensitive code. In some cases, the failure to access the current object instance represents a correctness issue.</td></tr><tr><td class="PropertyName">Rule File:</td><td class="PropertyContent">PerformanceRules.dll [12.0.0.0]</td></tr><tr><td class="PropertyName">Help:</td><td class="PropertyContent"><a href="http://msdn.microsoft.com/library/ms245046.aspx">http://msdn.microsoft.com/library/ms245046.aspx</a></td></tr></table></div></td></tr></table></div>
+          </div>
+         
+        </div>
+       
+      </div>
+     
+    </div>
+   
+  </div>
+ </body></html>

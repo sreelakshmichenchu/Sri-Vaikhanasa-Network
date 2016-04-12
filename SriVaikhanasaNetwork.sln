@@ -1,0 +1,87 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8E3DC02F-956A-4A11-A7B7-E1E761FB8B0E}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svn.Repository", "SVN.Repository\Svn.Repository.csproj", "{86141A4B-6580-4F65-8B4C-059709C4C4F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svn.Model", "SVN.Model\Svn.Model.csproj", "{03450934-C4C1-431F-AAEC-332AE3DF85F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svn.Service", "SVN.Services\Svn.Service.csproj", "{E2498662-7EAC-4687-911C-EFA8D9250831}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svn.Resources", "SVN.Resources\Svn.Resources.csproj", "{7435E0E4-E878-478B-A59D-7B827D97CE5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1CD5CC4C-82B8-404E-A5A0-F0421429FF78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{ABF1FF7E-3435-423E-817A-62498F3524B5}"
+	ProjectSection(SolutionItems) = preProject
+		BuildTools\SonarQube\sonar-build.log = BuildTools\SonarQube\sonar-build.log
+		BuildTools\SonarQube\sonar-server.bat = BuildTools\SonarQube\sonar-server.bat
+		BuildTools\SonarQube\SonarQube.Analysis.xml = BuildTools\SonarQube\SonarQube.Analysis.xml
+		BuildTools\SonarQube\svn-sonar.bat = BuildTools\SonarQube\svn-sonar.bat
+		BuildTools\SonarQube\timestamp.txt = BuildTools\SonarQube\timestamp.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StrongName", "StrongName", "{E504B543-4251-4F52-8410-38913739B14E}"
+	ProjectSection(SolutionItems) = preProject
+		BuildTools\StrongName\sn.txt = BuildTools\StrongName\sn.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FxCop", "FxCop", "{90CB2A49-9FA5-48D9-B71F-5248DC1F138F}"
+	ProjectSection(SolutionItems) = preProject
+		BuildTools\FxCop\CustomDictionary.xml = BuildTools\FxCop\CustomDictionary.xml
+		BuildTools\FxCop\FxCopReport.html = BuildTools\FxCop\FxCopReport.html
+		BuildTools\FxCop\Svn.FxCop = BuildTools\FxCop\Svn.FxCop
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svn.WebApi", "Svn.WebApi\Svn.WebApi.csproj", "{1B1A99D9-075A-4E98-971A-19C2CE19E3EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svn.WebUI", "Svn.WebUI\Svn.WebUI.csproj", "{FA567AB5-0D70-4185-AC9C-39742131EBCC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86141A4B-6580-4F65-8B4C-059709C4C4F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86141A4B-6580-4F65-8B4C-059709C4C4F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86141A4B-6580-4F65-8B4C-059709C4C4F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86141A4B-6580-4F65-8B4C-059709C4C4F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03450934-C4C1-431F-AAEC-332AE3DF85F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03450934-C4C1-431F-AAEC-332AE3DF85F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03450934-C4C1-431F-AAEC-332AE3DF85F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03450934-C4C1-431F-AAEC-332AE3DF85F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2498662-7EAC-4687-911C-EFA8D9250831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2498662-7EAC-4687-911C-EFA8D9250831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2498662-7EAC-4687-911C-EFA8D9250831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2498662-7EAC-4687-911C-EFA8D9250831}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7435E0E4-E878-478B-A59D-7B827D97CE5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7435E0E4-E878-478B-A59D-7B827D97CE5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7435E0E4-E878-478B-A59D-7B827D97CE5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7435E0E4-E878-478B-A59D-7B827D97CE5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B1A99D9-075A-4E98-971A-19C2CE19E3EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B1A99D9-075A-4E98-971A-19C2CE19E3EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B1A99D9-075A-4E98-971A-19C2CE19E3EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B1A99D9-075A-4E98-971A-19C2CE19E3EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA567AB5-0D70-4185-AC9C-39742131EBCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA567AB5-0D70-4185-AC9C-39742131EBCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA567AB5-0D70-4185-AC9C-39742131EBCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA567AB5-0D70-4185-AC9C-39742131EBCC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ABF1FF7E-3435-423E-817A-62498F3524B5} = {1CD5CC4C-82B8-404E-A5A0-F0421429FF78}
+		{E504B543-4251-4F52-8410-38913739B14E} = {1CD5CC4C-82B8-404E-A5A0-F0421429FF78}
+		{90CB2A49-9FA5-48D9-B71F-5248DC1F138F} = {1CD5CC4C-82B8-404E-A5A0-F0421429FF78}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,2 @@
+CD "$(SolutionDir)packages\Brutal.Dev.StrongNameSigner.1.6.1\tools"
+StrongNameSigner.Console -in "..\..\..\SVN.Web\bin" -k "$(SolutionDir)Svn.snk" 

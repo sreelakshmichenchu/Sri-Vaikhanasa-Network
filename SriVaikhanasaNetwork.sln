@@ -10,13 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8E3DC0
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svn.Repository", "SVN.Repository\Svn.Repository.csproj", "{86141A4B-6580-4F65-8B4C-059709C4C4F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svn.Repository", "Svn.Repository\Svn.Repository.csproj", "{86141A4B-6580-4F65-8B4C-059709C4C4F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svn.Model", "SVN.Model\Svn.Model.csproj", "{03450934-C4C1-431F-AAEC-332AE3DF85F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svn.Model", "Svn.Model\Svn.Model.csproj", "{03450934-C4C1-431F-AAEC-332AE3DF85F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svn.Service", "SVN.Services\Svn.Service.csproj", "{E2498662-7EAC-4687-911C-EFA8D9250831}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svn.Service", "Svn.Services\Svn.Service.csproj", "{E2498662-7EAC-4687-911C-EFA8D9250831}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svn.Resources", "SVN.Resources\Svn.Resources.csproj", "{7435E0E4-E878-478B-A59D-7B827D97CE5D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Svn.Resources", "Svn.Resources\Svn.Resources.csproj", "{7435E0E4-E878-478B-A59D-7B827D97CE5D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1CD5CC4C-82B8-404E-A5A0-F0421429FF78}"
 EndProject

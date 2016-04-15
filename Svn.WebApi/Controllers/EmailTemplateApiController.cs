@@ -4,6 +4,7 @@ using System.Web.Http;
 
 namespace Svn.WebApi.Controllers
 {
+    [Authorize]
     public class EmailTemplateApiController : ApiController
     {
         readonly IEmailService oEmailService;

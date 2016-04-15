@@ -99,8 +99,6 @@
     <Compile Include="Base\IEntityService.cs" />
     <Compile Include="ArticleService\IArticleService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserServices\ApplicationRoleManager.cs" />
-    <Compile Include="UserServices\ApplicationSignInManager.cs" />
     <Compile Include="UserServices\ApplicationUserManager.cs" />
   </ItemGroup>
   <ItemGroup>

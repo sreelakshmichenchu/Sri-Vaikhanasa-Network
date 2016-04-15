@@ -4,11 +4,11 @@ using System.Web.Http;
 
 namespace Svn.WebApi.Controllers
 {
-    public class EmailTemplateController : ApiController
+    public class EmailTemplateApiController : ApiController
     {
         readonly IEmailService oEmailService;
 
-        public EmailTemplateController(IEmailService service)
+        public EmailTemplateApiController(IEmailService service)
         {
             oEmailService = service;
         }

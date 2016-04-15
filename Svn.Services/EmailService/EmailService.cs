@@ -1,5 +1,6 @@
 ﻿using Svn.Model;
 using Svn.Repository;
+using System;
 using System.Linq;
 using System.Net.Mail;
 
@@ -17,7 +18,7 @@ namespace Svn.Service
                 return res.First().Template;
             }
 
-            return string.Empty;
+            throw new InvalidOperationException();
         }
 
         public static void SendEmail(string toEmail, string receiverName, string subject, string body)

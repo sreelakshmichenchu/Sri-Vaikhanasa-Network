@@ -23,11 +23,13 @@ namespace Svn.Service
             }
         }
 
-        public IEnumerable<Article> GetMyItems(Guid myUserId)
+        public IEnumerable<Article> GetItemsByUserID(Guid userId)
         {
-            var items = Repository.FindBy(w1 => w1.CreatedBy == myUserId)
+            var items = Repository.FindBy(w1 => w1.CreatedBy == userId)
                 .GroupBy(a1 => a1.InitialArticleId)
                 .SelectMany(s1 => s1.OrderByDescending(o1 => o1.CreatedAt).ThenByDescending(o2 => o2.ModifiedAt).Take(1)).ToList();
+
+            // TODO: Filter out non approved articles if userId is not currently logged in userId.
 
             return items;
         }

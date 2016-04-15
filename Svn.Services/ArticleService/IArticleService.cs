@@ -10,7 +10,7 @@ namespace Svn.Service
     public interface IArticleService : IEntityService<Article>
     {
         IEnumerable<Article> GetPublishedItems { get; }
-        IEnumerable<Article> GetMyItems(Guid myUserId);
+        IEnumerable<Article> GetItemsByUserID(Guid userId);
         void SaveAsDraft(Article article);
         void Submit(Article article);
         new void Delete(Article entity);

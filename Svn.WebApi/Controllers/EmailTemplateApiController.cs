@@ -18,9 +18,9 @@ namespace Svn.WebApi.Controllers
             return oEmailService.GetAll.Select(s => s.Code);
         }
 
-        public object Get(string code)
+        public object Get(string templateName)
         {
-            return oEmailService.GetEmailTemplateByCode(code);
+            return oEmailService.GetEmailTemplateByCode(templateName);
         }
     }
 }

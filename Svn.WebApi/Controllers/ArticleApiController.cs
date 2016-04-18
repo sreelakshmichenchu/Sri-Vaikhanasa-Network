@@ -23,7 +23,7 @@ namespace Svn.WebApi.Controllers
         }
 
         [Route("User/{userId}")]
-        [HttpGets]
+        [HttpGet]
         public object GetByUserID(string userId)
         {
             return oArticleService.GetItemsByUserID(Guid.Parse(userId));

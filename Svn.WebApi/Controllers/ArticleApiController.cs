@@ -36,25 +36,39 @@ namespace Svn.WebApi.Controllers
             return oArticleService.GetById(Guid.Parse(articleId));
         }
 
-        [Route("Article/SaveAsDraft")]
+        [Route("Save")]
         [HttpPost]
         public void SaveAsDraft(Article article)
         {
             oArticleService.SaveAsDraft(article);
         }
 
-        [Route("Article/Submit")]
+        [Route("Submit")]
         [HttpPost]
         public void Submit(Article article)
         {
             oArticleService.Submit(article);
         }
 
-        [Route("Article/Delete")]
+        [Route("Delete")]
         [HttpDelete]
         public void Delete(Article article)
         {
             oArticleService.Delete(article);
+        }
+
+        [Route("Approve")]
+        [HttpPost]
+        public void Approve(Article article)
+        {
+            oArticleService.Approve(article);
+        }
+
+        [Route("ReferBack")]
+        [HttpPost]
+        public void ReferBack(Article article)
+        {
+            oArticleService.ReferBack(article);
         }
     }
 }

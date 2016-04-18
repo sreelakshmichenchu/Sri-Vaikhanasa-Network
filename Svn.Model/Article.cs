@@ -23,7 +23,6 @@ namespace Svn.Model
 
         [Required]
         [AllowHtml]
-        [AllowSafeHtml]
         [DataType(DataType.MultilineText)]
         public string Content { get; set; }
 
